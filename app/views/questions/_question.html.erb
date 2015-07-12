@@ -1,0 +1,28 @@
+<%= form_for question , :html=> {:id => 'question_form'} do |f| %>
+
+	<div class="field">
+    <%= f.label :text, Question %><br />
+    <h6 id="question_text_solid"><%= question.text %></h6>
+    <%= f.text_field :text, autofocus: true, :id => "question_text_edit" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_type %>
+    <h6 id="question_type_solid"><%= question.question_type %></h6>
+	<!-- 		<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:id => "question_type_edit") %> 
+	-->
+	<%= f.text_field :question_type, autofocus: true, :id => "question_type_edit" %>
+	</div>
+
+
+  <div class="actions" id="question_text_button_confirm">
+  	<%= f.submit "Confirm Changes" %>
+	</div>
+
+<% end %>
+
+<button class="button tiny" id="question_text_button_edit">Edit</button>
+
+<% question.choices.each do |choice| %>
+	<%= render choice , :locals => {:question_id => question.id} %>
+<% end %>

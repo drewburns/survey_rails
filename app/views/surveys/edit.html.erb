@@ -1,0 +1,30 @@
+<%= form_for(@survey, :html=> {:id => 'survey_form'}) do |f| %>
+
+	<div class="field">
+    <%= f.label :title %><br />
+    <h6 id="survey_title_solid"><%= @survey.title %></h6>
+    <%= f.text_field :title, :id => "survey_title_edit", autofocus: true %>
+  </div>
+
+	<div class="field">
+    <%= f.label :description %><br />
+    <h6 id="survey_description_solid"><%= @survey.description %></h6>
+    <%= f.text_area :description, :id => "survey_description_edit" %>
+  </div>
+
+
+  <div class="actions" id="survey_button_confirm">
+    <%= f.submit "Confirm Changes" %>
+  </div>
+
+<% end %>
+
+<button class="button tiny" id="survey_button_edit">Edit</button>
+
+
+
+<% if @questions %>
+	<% @questions.each do |question| %>
+		<%= render question %>
+	<% end %>
+<% end %>

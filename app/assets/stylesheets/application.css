@@ -12,4 +12,53 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+ /*question form*/
+ #question_text_edit {
+ 	display:none;
+ }
+ #question_type_edit {
+ 	display: none;
+ }
+ #question_text_solid {
+ 	display:block;
+ }
+ #question_type_solid {
+ 	display: block;
+ }
+
+ #question_text_button_confirm{
+ 	display: none;
+ }
+ #question_text_button_edit {
+ 	display: block;
+ }
+ /*question form end*/
+
+/*survey form*/
+
+#survey_title_edit{
+	display: none;
+}
+
+#survey_description_edit{
+	display: none;
+}
+#survey_title_solid{
+	display: block;
+}
+
+#survey_description_solid{
+	display: block;
+}
+#survey_button_edit {
+	display: block;
+}
+#survey_button_confirm {
+	display: none;
+}
+
+/*survey form end*/

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users , only: :show
+  resources :surveys
+  resources :questions
+  resources :choices
+  get 'surveys/:id/stats' => 'surveys#stats'
+  post 'question/create' => 'questions#create'
+  post 'choice/create' => 'choices#create'
+  post 'question/delete' => 'questions#destroy'
+  post 'choice/delete' => 'choices#destroy'
+  root 'statics#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
