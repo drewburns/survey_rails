@@ -17,24 +17,28 @@
  */
 
  /*question form*/
- #question_text_edit {
- 	display:none;
+ .question_text_edit {
+ 	display: block;
  }
- #question_type_edit {
- 	display: none;
+ .question_type_edit {
+ 	display: block;
  }
- #question_text_solid {
- 	display:block;
+ .question_text_solid {
+ 	display: block;
  }
- #question_type_solid {
+ .question_type_solid {
  	display: block;
  }
 
- #question_text_button_confirm{
+ .question_text_button_confirm{
  	display: none;
  }
- #question_text_button_edit {
+ .question_text_button_edit {
  	display: block;
+ }
+ .question_form {
+ 	border-top: 4px solid gray;
+ 	border-bottom: 4px solid gray;
  }
  /*question form end*/
 
