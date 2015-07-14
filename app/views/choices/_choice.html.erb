@@ -1,6 +1,15 @@
-<%= form_for(choice) do |f| %>
-	<div class="field">
-    <%= f.label :text, "Answer" %><br />
-    <%= f.text_field :text, autofocus: true %>
-  </div>
-<% end %>
+<li>
+	<%= form_for choice, :html=> {:class => 'choice_form'} do |f| %>
+		<div class="field">
+	    <%= f.label :text, "Answer" %><br />
+	    <h6 class="text_solid"><%= choice.text %></h6>
+	    <%= f.text_field :text, :class => "text_edit" %>
+	  </div>
+
+	  <button type="button" class="button tiny button_edit">Edit</button>
+
+	  <div class="actions button_confirm">
+	  	<%= f.submit "Confirm Changes" %>
+		</div>
+	<% end %>
+</li>

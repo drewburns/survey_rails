@@ -24,8 +24,8 @@ class SurveysController < ApplicationController
 	def edit
 		@survey = Survey.find(params[:id])
 		@questions = Question.where(survey_id: @survey.id)
-		@question = Question.new
-		@choice = Choice.new
+		@question = Question.new(survey_id: @survey.id)
+		@choice = Choice.new(text: "insert text")
 	end
 
 	def destroy

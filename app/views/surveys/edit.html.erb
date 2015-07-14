@@ -25,6 +25,6 @@
 
 <% if @questions %>
 	<% @questions.each do |question| %>
-		<%= render question %>
+		<%= render question, :locals => {:new_choice => @choice} %>
 	<% end %>
 <% end %>

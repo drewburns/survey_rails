@@ -15,25 +15,27 @@
  *= require foundation_and_overrides
 
  */
-
+ ul {
+ 	list-style-type: none;
+ }
  /*question form*/
- .question_text_edit {
+ .text_edit {
  	display: block;
  }
- .question_type_edit {
+ .type_edit {
  	display: block;
  }
- .question_text_solid {
+ .text_solid {
  	display: block;
  }
- .question_type_solid {
+ .type_solid {
  	display: block;
  }
 
- .question_text_button_confirm{
+ .button_confirm{
  	display: none;
  }
- .question_text_button_edit {
+ .button_edit {
  	display: block;
  }
  .question_form {

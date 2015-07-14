@@ -2,27 +2,34 @@
 
 	<div class="field">
     <%= f.label :text, "Question" %><br />
-    <h6 class="question_text_solid"><%= question.text %></h6>
-    <%= f.text_field :text, :class => "question_text_edit" %>
+    <h6 class="text_solid"><%= question.text %></h6>
+    <%= f.text_field :text, :class => "text_edit" %>
   </div>
 
   <div class="field">
     <%= f.label :question_type %>
-    <h6 class="question_type_solid"><%= question.question_type %></h6>
-	<!-- 		<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "question_type_edit") %> 
-	-->
-	<%= f.text_field :question_type, :class => "question_type_edit" %>
+    <h6 class="type_solid"><%= question.question_type %></h6>
+			<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "type_edit") %> 
 	</div>
 
-	<button type="button" class="button tiny question_text_button_edit">Edit</button>
-  <div class="actions question_text_button_confirm">
+	<button type="button" class="button tiny button_edit">Edit</button>
+  <div class="actions button_confirm">
   	<%= f.submit "Confirm Changes" %>
 	</div>
 
 <% end %>
 
-<!-- 
-<% question.choices.each do |choice| %>
-	<%= render choice , :locals => {:question_id => question.id} %>
-<% end %>
- -->
+<ul id="choices_list">
+	<% question.choices.each do |choice| %>
+		<%= render choice %>
+	<% end %>
+</ul>
+
+
+	<%= form_for @choice  , :html=> {:id => 'new_choice'} do |f| %>
+		 	<%= f.hidden_field :question_id, :value => question.id %>
+
+		 <div class="actions">
+	  	<%= f.submit "Add another choice" %>
+		</div>
+	<% end %>
