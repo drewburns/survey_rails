@@ -17,35 +17,21 @@
 
 
 
-jQuery.fn.submitWithAjax = function() {
-  this.submit(function() {
-    $.post(this.action + '.js', $(this).serialize(), null, "script");
-    return false;
-  })
-  return this;
-};
 
 $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){ 
 
-	$("#new_choice").submitWithAjax();
+
 
   $(".text_edit").toggle();
   $(".type_edit").toggle();
 
-	$( "#survey_form" ).submit(function( event ) {
-			event.preventDefault();
+
+	$( "#survey_form" ).on( "submit", function() {
+	  event.preventDefault();
 			var title = $('#survey_title_edit').val();
 			var description = $('#survey_description_edit').val();
-		  var valuesToSubmit = $(this).serialize();
-		    $.ajax({
-		        type: "POST",
-		        url: $(this).attr('action'), //sumbits it to the given url of the form
-		        data: valuesToSubmit,
-		        dataType: "html" // you want a difference between normal and ajax-calls, and json is standard
-		    }).success(function(data){
-		    });
 		$("#survey_title_edit").toggle();
   	$("#survey_description_edit").toggle();
   	$("#survey_title_solid").toggle();
@@ -56,17 +42,19 @@ $(document).ready(function(){
     $('#survey_description_solid').html( description );
 	});
 
-	$( "#survey_button_edit" ).click(function() {
-		$("#survey_title_edit").toggle();
-  	$("#survey_description_edit").toggle();
-  	$("#survey_title_solid").toggle();
-  	$("#survey_description_solid").toggle();
-  	$("#survey_button_confirm").toggle();
-  	$("#survey_button_edit").toggle();
+
+	$( "#survey_button_edit" ).on( "click", function() {
+	  	$("#survey_title_edit").toggle();
+	  	$("#survey_description_edit").toggle();
+	  	$("#survey_title_solid").toggle();
+	  	$("#survey_description_solid").toggle();
+	  	$("#survey_button_confirm").toggle();
+	  	$("#survey_button_edit").toggle();
 	});
 
 
-	$( ".button_edit" ).click(function() {
+
+	$( ".button_edit" ).on( "click", function() {
 		var form = $(this).parent();
   	$( form ).find(".text_edit").toggle();
   	$( form ).find(".type_edit").toggle();
@@ -77,18 +65,10 @@ $(document).ready(function(){
 	});
 
 
-	$( ".question_form" ).submit(function( event ) {
+	$( ".question_form" ).on( "submit", function() {
 			event.preventDefault();
 			var text = $( this ).find('.text_edit').val();
 			var question_type = $( this ).find('.type_edit').val();
-		  var valuesToSubmit = $(this).serialize();
-		    $.ajax({
-		        type: "POST",
-		        url: $(this).attr('action'), //sumbits it to the given url of the form
-		        data: valuesToSubmit,
-		        dataType: "html" // you want a difference between normal and ajax-calls, and json is standard
-		    }).success(function(data){
-		    });
 		$( this ).find(".text_edit").toggle();
   	$( this ).find(".type_edit").toggle();
   	$( this ).find(".text_solid").toggle();
@@ -99,18 +79,9 @@ $(document).ready(function(){
     $( this ).find('.type_solid').html( question_type );
 	});
 
-	$(".choice_form").submit(function( event ) {
+	$( ".choice_form" ).on( "submit", function() {
 		event.preventDefault();
 			var text = $( this ).find('.text_edit').val();
-			var question_type = $('.type_edit').val();
-		  var valuesToSubmit = $(this).serialize();
-		    $.ajax({
-		        type: "POST",
-		        url: $(this).attr('action' + '.js'), //sumbits it to the given url of the form
-		        data: valuesToSubmit,
-		        dataType: "html" // you want a difference between normal and ajax-calls, and json is standard
-		    }).success(function(data){
-		  	});
 		$( this ).find(".text_edit").toggle();
 		$( this ).find(".text_solid").toggle();
 		$( this ).find(".button_confirm").toggle();

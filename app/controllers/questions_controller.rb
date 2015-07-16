@@ -1,8 +1,11 @@
 class QuestionsController < ApplicationController
 	def create
-		survey = Survey.find(params[:id])
-		question = survey.questions.build(question_params)
-		question.save
+		survey = Survey.find(params[:survey_id])
+		@question = survey.questions.build()
+		@question.save
+		respond_to do |format|
+	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
+  	end
 	end
 
 	def update
@@ -11,7 +14,12 @@ class QuestionsController < ApplicationController
 	end
 
 	def destroy
-		Question.find(params[:id]).destroy
+		question = Question.find(params[:id])
+		question_id = question.id.to_s
+		question.destroy
+		respond_to do |format|
+	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:question_id => question_id} }
+  	end
 	end
 
 	private

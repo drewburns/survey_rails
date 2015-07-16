@@ -7,11 +7,19 @@ class ChoicesController < ApplicationController
 	end
 
 	def destroy
-		Choice.find(params[:id]).destroy
+		choice = Choice.find(params[:id])
+		puts "________________"
+		puts choice.id
+		choice_id = choice.id.to_s
+		choice.destroy
+		respond_to do |format|
+	    format.js {render layout: false, :template => 'choices/destroy.js.erb', :locals => {:choice_id => choice_id} }
+  	end
 	end
 
 	def update
-		@choice = Choice.find(params[:id]).update_attributes(choice_params)
+		@choice = Choice.find(params[:id])
+		@choice.update_attributes(choice_params)
 	end
 
 	private

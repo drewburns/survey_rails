@@ -1,4 +1,13 @@
 var string ="<%= escape_javascript render(:partial => 'choices/choice', :locals => { :choice => choice }).html_safe %>"
-var piece = $("#choices_list").append(string);
+var piece = $("#choices_list_"+<%=@choice.question.id %>).append(string);
 $(piece).find("li:last-child .button_confirm").toggle();
 $(piece).find("li:last-child .button_edit").toggle();
+	$( ".choice_form" ).on( "submit", function() {
+		event.preventDefault();
+			var text = $( this ).find('.text_edit').val();
+		$( this ).find(".text_edit").toggle();
+		$( this ).find(".text_solid").toggle();
+		$( this ).find(".button_confirm").toggle();
+  	$( this ).find(".button_edit").toggle();
+  	$( this ).find('.text_solid').html( text );
+	});

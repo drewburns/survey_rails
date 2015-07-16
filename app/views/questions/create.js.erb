@@ -1,0 +1,15 @@
+var string ="<%= escape_javascript render(:partial => 'questions/question', :locals => { :question => question, :@choice => choice }).html_safe %>"
+var piece = $("#questions_list").append(string);
+$(piece).find("li:last-child .button_confirm").toggle();
+$(piece).find("li:last-child .button_edit").toggle();
+  $( ".question_form" ).on( "submit", function() {
+      event.preventDefault();
+      var text = $( this ).find('.text_edit').val();
+      var question_type = $( this ).find('.type_edit').val();
+    $( this ).find(".text_edit").toggle();
+    $( this ).find(".type_edit").toggle();
+    $( this ).find(".button_confirm").toggle();
+    $( this ).find(".button_edit").toggle();
+    $( this ).find('.text_solid').html( text );
+    $( this ).find('.type_solid').html( question_type );
+  });

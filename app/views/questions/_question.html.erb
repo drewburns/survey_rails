@@ -1,4 +1,5 @@
-<%= form_for question , :html=> {:class => 'question_form'} do |f| %>
+<li id="#question_<%=question.id.to_s%>">
+<%= form_for question , :html=> {:class => 'question_form'} ,  remote: true do |f| %>
 
 	<div class="field">
     <%= f.label :text, "Question" %><br />
@@ -9,27 +10,29 @@
   <div class="field">
     <%= f.label :question_type %>
     <h6 class="type_solid"><%= question.question_type %></h6>
-			<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "type_edit") %> 
+<!-- 			<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "type_edit") %>  -->
+    <%= f.text_field :question_type, :class => "type_edit" %>
 	</div>
 
 	<button type="button" class="button tiny button_edit">Edit</button>
   <div class="actions button_confirm">
   	<%= f.submit "Confirm Changes" %>
 	</div>
-
+	<%= link_to  "Delete question", question, remote: true,  method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
-<ul id="choices_list">
+<ul id="choices_list_<%= question.id %>">
 	<% question.choices.each do |choice| %>
 		<%= render choice %>
 	<% end %>
 </ul>
 
 
-	<%= form_for @choice  , :html=> {:id => 'new_choice'} do |f| %>
+	<%= form_for @choice  , :html=> {:id => 'new_choice'}, remote: true do |f| %>
 		 	<%= f.hidden_field :question_id, :value => question.id %>
 
 		 <div class="actions">
 	  	<%= f.submit "Add another choice" %>
 		</div>
 	<% end %>
+</li>
