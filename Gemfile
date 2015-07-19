@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem "chartkick"
 gem 'foundation-rails'
 #devise 
 gem 'devise'

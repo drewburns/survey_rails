@@ -1,0 +1,8 @@
+<li class="text-center">
+	<h4><%= question.text %></h4>
+			<%= field_set_tag 'Choices' do %>
+				<% question.choices.each do |choice| %>
+					<input type="radio" name=<%= "question" + "[#{question.id.to_s}]" %> value= <%= choice.id %> >  <%= choice.text %></br>
+				<% end %>
+			<% end %>
+</li>

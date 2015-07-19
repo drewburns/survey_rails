@@ -1,0 +1,8 @@
+<h3 class="text-center large-6 small-10 columns large-centered small-centered">Recent Surveys</h3>
+<div class="text-center large-6 small-10 columns large-centered small-centered">
+	<ul class="survey-holder">
+	<% @surveys.each do |survey| %>
+		<%= render :partial => 'shared/survey', :locals => {:survey => survey}  %>
+	<% end %>
+	</ul>
+</div>

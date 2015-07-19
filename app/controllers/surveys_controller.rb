@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
 	before_action :authenticate_user!
-	# before_action :already_taken? , only: :show
+	before_action :already_taken? , only: :show
 	before_action :correct_user?, only: [:edit, :stats, :update, :destroy]
 
 	def stats
@@ -8,11 +8,13 @@ class SurveysController < ApplicationController
 	end
 
 	def index
-		@survey = Survey.last(20)
+		@surveys = Survey.last(20)
 	end
 
 	def show
 		@survey = Survey.find(params[:id])
+		@selection = Selection.new
+		@completion  = Completion.new
 	end
 
 	def update
@@ -31,7 +33,7 @@ class SurveysController < ApplicationController
 	def destroy
 		survey = Survey.find(params[:id])
 		survey.destroy 
-		redirect_to root_path, :notice => "Survey deleted"
+		redirect_to current_user, :notice => "Survey deleted"
 	end
 
 	def create
@@ -48,8 +50,10 @@ class SurveysController < ApplicationController
 
 	def already_taken?
 		survey = Survey.find(params[:id])
-		unless Completion.where(user_id: current_user.id, survey_id: survey.id).count == 0 and current_user != survey.user
-			redirect_to root_path, :alert => "You already took that survey"
+		if current_user != survey.user
+			unless Completion.where(user_id: current_user.id, survey_id: survey.id).count == 0
+				redirect_to surveys_path, :alert => "You already took that survey"
+			end
 		end
 	end
 

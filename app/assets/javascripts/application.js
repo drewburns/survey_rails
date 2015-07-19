@@ -20,6 +20,9 @@
 
 $(function(){ $(document).foundation(); });
 
+
+
+
 $(document).ready(function(){ 
 
 
@@ -88,6 +91,7 @@ $(document).ready(function(){
   	$( this ).find(".button_edit").toggle();
   	$( this ).find('.text_solid').html( text );
 	});
+
 
 });
 

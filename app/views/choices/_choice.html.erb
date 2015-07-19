@@ -1,16 +1,13 @@
-<li id="choice_<%=choice.id.to_s%>">
 	<%= form_for choice, :html=> {:class => 'choice_form'}, remote: true do |f| %>
 		<div class="field">
 	    <%= f.label :text, "Answer" %><br />
 	    <h6 class="text_solid"><%= choice.text %></h6>
 	    <%= f.text_field :text, :class => "text_edit" %>
 	  </div>
-
-	  <button type="button" class="button tiny button_edit">Edit</button>
-
+	  <button type="button" class="button tiny radius button_edit large-1 small-2 large-centered small-centered columns">Edit</button>
+		<i><%= link_to  "", choice, remote: true, method: :delete, data: { confirm: 'Are you sure?'}, :class => "fi-trash size-21" %></i>
 	  <div class="actions button_confirm">
-	  	<%= f.submit "Confirm Changes" %>
+	  	<%= f.submit "Confirm Changes", :class => "button tiny radius" %>
 		</div>
-		<%= link_to  "Delete Choice", choice, remote: true, method: :delete, data: { confirm: 'Are you sure?'} %>
 	<% end %>
 </li>

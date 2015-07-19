@@ -1,1 +1,15 @@
-<p>hi</p>
+<h3 class="text-center large-6 small-10 columns large-centered small-centered"><%= @user.username%></h3>
+<h5 class="text-center large-6 small-10 columns large-centered small-centered">My Surveys:</h5>
+
+<div class="text-center large-6 small-10 columns large-centered small-centered">
+<% if @user.surveys.empty? %>
+	<h5><%= @user == current_user ? ("You") : (@user.username)%>  have no surveys!</h5>
+	<%= link_to "Make Some!", new_survey_path %>
+<% else %>
+	<ul class="survey-holder">
+	<% @user.surveys.each do |survey| %>
+		<%= render :partial => 'shared/survey', :locals => {:survey => survey}  %>
+	<% end %>
+	</ul>
+<% end %>
+</div>

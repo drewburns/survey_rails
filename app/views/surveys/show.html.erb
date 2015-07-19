@@ -1,0 +1,15 @@
+<div class="small-12 large-8 large-centered columns">
+<h3 class="text-center"><%= @survey.title %> by <%=link_to @survey.user.username, user_path(@survey.user) %></h3>
+<p class="text-center"><%= @survey.description %></p>
+<%= form_for @completion do |f|%>
+	<%= f.hidden_field :survey_id, :value => @survey.id %>
+	<ul>
+		<% @survey.questions.each do |question| %>
+			<%= render :partial => 'shared/question_take' , :locals => {:question => question,  :selection => @selection} %>
+		<% end %>
+	</ul>
+	<div class="actions text-center" >
+    <%= f.submit "Submit Choices", :class => "button tiny radius success" %>
+  </div>
+<% end %>
+</div>

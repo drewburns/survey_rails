@@ -1,0 +1,29 @@
+<h3 class="text-center large-6 small-10 columns large-centered small-centered"><%= @survey.title.capitalize %></h3>
+<h4 class="text-center large-6 small-10 columns large-centered small-centered">Responses: <%= @survey.completions.count %></h4>
+
+
+
+
+<ul id="stat-holder" class="large-12 columns">
+	<% @survey.questions.each do |question| %>
+	<li class="question-stats">
+		<div class='left large-6 columns'>
+		<%= column_chart get_data(question), min: 0, max: 100, library: {hAxis: {title: "Choice"}, vAxis: {title: "Percent Chosen"}, title: question.text} %>
+		</div>
+		<div class='right large-6 columns'>
+				<%= pie_chart get_data(question), library: {hAxis: {title: "Choice"}, vAxis: {title: "Percent Chosen"}, title: question.text} %>
+		</div>
+		<div class="divider large-12 small-12 columns"></div>
+	</li>
+	<% end %>
+</ul>
+
+<!-- 
+<% @survey.questions.each do |question| %>
+	<h5><%= question.text %></h5>
+		<% question.choices.each do |choice| %>
+			<p>Choice: <%= choice.text %> - got <%= (choice.selections.count)/(question.selections.count).to_f * 100 %>%</p>
+		<% end %>
+<% end %> 
+
+-->

@@ -15,8 +15,61 @@
  *= require foundation_and_overrides
 
  */
+ .notice {
+	width: 100%;
+	background-color: #68E516;
+	text-align: center;
+	color: black;
+	font-family: 'Raleway', sans-serif; 
+}
+
+.alert {
+	text-align: center;
+	color: white;
+	font-family: 'Raleway', sans-serif; 
+	width: 100%;
+  background-color:#FF3C25
+}
+ .text {
+ 	font-family: 'Cambay', sans-serif;
+ }
+ * {
+ 	font-family: 'Cambay', sans-serif;
+ }
+ .button {
+ 	font-family: 'Cambay', sans-serif;
+ }
+ div {
+ 	font-family: 'Cambay', sans-serif;
+ }
+ li {
+ 	font-family: 'Cambay', sans-serif;
+ }
+ h2 {
+ 	font-family: 'Cambay', sans-serif;
+ }
+ section {
+ 	font-family: 'Cambay', sans-serif;
+ }
+#background {
+	height: 90%;
+	width: 100%;
+	background: url('background.jpg') no-repeat;
+	background-size: 100%;
+}
+.white {
+	color:white;
+}
+#index_body {
+	padding-top: 5%;
+}
+
  ul {
+	font-family: 'Cambay', sans-serif;
  	list-style-type: none;
+ }
+ .text-center {
+ 	text-align: center;
  }
  /*question form*/
  .text_edit {
@@ -67,4 +120,50 @@
 	display: none;
 }
 
+
 /*survey form end*/
+
+
+/*icon sizes*/
+
+	.size-12 { font-size: 12px; }
+
+	.size-14 { font-size: 14px; }
+
+	.size-16 { font-size: 16px; }
+
+	.size-18 { font-size: 18px; }
+
+	.size-21 { font-size: 21px; }
+
+	.size-24 { font-size: 24px; }
+	.size-30 { font-size: 30px; }
+	.size-36 { font-size: 36px; }
+
+	.size-48 { font-size: 48px; }
+
+	.size-60 { font-size: 60px; }
+
+	.size-72 { font-size: 72px; }
+
+.fi-trash {
+	color: gray;
+}
+.fi-pencil {
+	color: orange ;
+}
+/*icon sizes end*/
+
+
+/*stats*/
+.divider {
+	height: 1px;
+	width: 100%;
+	background-color: gray;
+}
+.survey-holder li{
+	border-bottom: 1px solid gray;
+}
+.survey-holder li:last-child {
+	border-bottom: none;
+}

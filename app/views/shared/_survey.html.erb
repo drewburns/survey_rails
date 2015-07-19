@@ -1,0 +1,13 @@
+<% if current_user == survey.user %>
+	<% name = "Me" %>
+<% else %>
+	<% name = survey.user.username %>
+<% end %>
+<li>
+	<h3><%= link_to survey.title, survey %> - by <%= link_to name, survey.user %>
+		<% if current_user == survey.user %>
+			<i><%= link_to "", edit_survey_path(survey),:class => "fi-pencil size-30" %> </i>
+			<i ><%= link_to "",  survey ,  method: :delete, data: { confirm: 'Are you sure?' }, :class => "fi-trash size-30" %></i>
+		<% end  %>
+	</h3>
+</li>

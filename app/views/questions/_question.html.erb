@@ -1,38 +1,39 @@
-<li id="#question_<%=question.id.to_s%>">
-<%= form_for question , :html=> {:class => 'question_form'} ,  remote: true do |f| %>
+<li id="#question_<%=question.id.to_s%>" class ="large-10 small-10 large-centered small-centered columns">
+	<%= form_for question , :html=> {:class => 'question_form'} ,  remote: true do |f| %>
 
-	<div class="field">
-    <%= f.label :text, "Question" %><br />
-    <h6 class="text_solid"><%= question.text %></h6>
-    <%= f.text_field :text, :class => "text_edit" %>
-  </div>
+		<div class="field">
+	    <%= f.label :text, "Question" %><br />
+	    <h6 class="text_solid"><%= question.text %></h6>
+	    <%= f.text_field :text, :class => "text_edit" %>
+	  </div>
 
-  <div class="field">
-    <%= f.label :question_type %>
-    <h6 class="type_solid"><%= question.question_type %></h6>
-<!-- 			<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "type_edit") %>  -->
-    <%= f.text_field :question_type, :class => "type_edit" %>
-	</div>
+	  <div class="field">
+	    <%= f.label :question_type %>
+	    <h6 class="type_solid"><%= question.question_type %></h6>
+	<!-- 			<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "type_edit") %>  -->
+	    <%= f.text_field :question_type, :class => "type_edit" %>
+		</div>
 
-	<button type="button" class="button tiny button_edit">Edit</button>
-  <div class="actions button_confirm">
-  	<%= f.submit "Confirm Changes" %>
-	</div>
-	<%= link_to  "Delete question", question, remote: true,  method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+		<button type="button" class="button tiny radius button_edit large-1 small-2 large-centered small-centered columns">Edit</button>
+	  <div class="actions button_confirm">
+	  	<%= f.submit "Confirm Changes", :class => "button tiny radius success" %>
+		</div>
 
-<ul id="choices_list_<%= question.id %>">
-	<% question.choices.each do |choice| %>
-		<%= render choice %>
+		<i><%= link_to  "", question, remote: true,  method: :delete, data: { confirm: 'Are you sure?' }, :class => "fi-trash size-30" %></i>
 	<% end %>
-</ul>
 
-
-	<%= form_for @choice  , :html=> {:id => 'new_choice'}, remote: true do |f| %>
+	<ul id="choices_list_<%= question.id %>" class ="large-10 small-10 large-centered small-centered columns">
+		<% question.choices.each do |choice| %>
+			<%= render choice %>
+		<% end %>
+		<%= form_for @choice  , :html=> {:id => 'new_choice'}, remote: true do |f| %>
 		 	<%= f.hidden_field :question_id, :value => question.id %>
 
 		 <div class="actions">
-	  	<%= f.submit "Add another choice" %>
+	  	<%= f.submit "Add another choice", :class => "button tiny radius secondary" %>
 		</div>
+		<div class="divider"></div>
 	<% end %>
+	</ul>
+
 </li>
