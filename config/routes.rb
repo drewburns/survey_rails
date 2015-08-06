@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :choices
   resources :completions
   resources :selections, only: [:new, :create]
-  get 'surveys/:id/stats' => 'surveys#stats'
+  get 'surveys/:id/stats' => 'surveys#stats', :as => 'survey_stats'
   post 'question/create' => 'questions#create'
   post 'choice/create' => 'choices#create'
   post 'question/delete' => 'questions#destroy'

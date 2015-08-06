@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'toastr-rails'
 gem "chartkick"
 gem 'foundation-rails'
 #devise 

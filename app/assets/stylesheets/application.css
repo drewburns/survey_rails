@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+*= require toastr
  */
  .notice {
 	width: 100%;
@@ -151,6 +151,9 @@
 }
 .fi-pencil {
 	color: orange ;
+}
+.fi-graph-bar {
+	color: green;
 }
 
 /*icon sizes end*/

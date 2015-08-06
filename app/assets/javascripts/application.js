@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-
+//= require toastr
 
 
 
@@ -43,6 +43,7 @@ $(document).ready(function(){
   	$("#survey_button_edit").toggle();
   	$('#survey_title_solid').html( title );
     $('#survey_description_solid').html( description );
+    toastr.success('Survey Updated');
 	});
 
 
@@ -91,6 +92,22 @@ $(document).ready(function(){
   	$( this ).find(".button_edit").toggle();
   	$( this ).find('.text_solid').html( text );
 	});
+
+
+	toastr.options = {
+	  "closeButton": true,
+	  "debug": false,
+	  "positionClass": "toast-top-full-width",
+	  "onclick": null,
+	  "showDuration": "300",
+	  "hideDuration": "1000",
+	  "timeOut": "3000",
+	  "extendedTimeOut": "1000",
+	  "showEasing": "swing",
+	  "hideEasing": "linear",
+	  "showMethod": "fadeIn",
+	  "hideMethod": "fadeOut"
+	}
 
 
 });

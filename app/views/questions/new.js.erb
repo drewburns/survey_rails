@@ -1,4 +1,3 @@
-
 var string ="<%= escape_javascript render(:partial => 'questions/question', :locals => { :question => question, :@choice => choice }).html_safe %>"
 var piece = $("#questions_list").append(string);
 $(piece).find("li:last-child .button_confirm").toggle();

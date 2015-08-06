@@ -2,16 +2,12 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = Question.create(question_params)
-		puts "_______________"
-		puts "QUESTION CREATED"
 		respond_to do |format|
 	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
   	end
 	end
 
 	def new
-		puts "_______________"
-		puts "NEW QUESTION"
 		@question = Question.new(survey_id: params[:survey_id])
 		respond_to do |format|
 	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
