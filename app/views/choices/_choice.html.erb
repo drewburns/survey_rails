@@ -1,6 +1,8 @@
+<li>
 	<%= form_for choice, :html=> {:class => 'choice_form'}, remote: true do |f| %>
 		<div class="field">
-	    <%= f.label :text, "Answer" %><br />
+			<%= f.hidden_field :question_id, :value => choice.question.id %>
+			<br />
 	    <h6 class="text_solid"><%= choice.text %></h6>
 	    <%= f.text_field :text, :class => "text_edit" %>
 	  </div>

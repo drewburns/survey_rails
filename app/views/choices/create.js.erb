@@ -1,8 +1,21 @@
+var piece = $("#choices_list_<%= choice.question.id.to_s %> li:last-child");
+$(piece).hide();
 var string ="<%= escape_javascript render(:partial => 'choices/choice', :locals => { :choice => choice }).html_safe %>"
-var piece = $("#choices_list_"+<%=@choice.question.id %>).append(string);
-$(piece).find("li:last-child .button_confirm").toggle();
-$(piece).find("li:last-child .button_edit").toggle();
-	$( ".choice_form" ).on( "submit", function() {
+var new_piece = $("#choices_list_<%= choice.question.id.to_s %>").append(string);
+$( "#edit_choice_<%= choice.id.to_s %>" ).find(".text_edit").toggle();
+
+
+	$( ".button_edit" ).on( "click", function() {
+		var form = $(this).parent();
+  	$( form ).find(".text_edit").toggle();
+  	$( form ).find(".type_edit").toggle();
+  	$( form ).find(".text_solid").toggle();
+  	$( form ).find(".type_solid").toggle();
+  	$( form ).find(".button_confirm").toggle();
+  	$( form ).find(".button_edit").toggle();
+	});
+
+		$( ".choice_form" ).on( "submit", function() {
 		event.preventDefault();
 			var text = $( this ).find('.text_edit').val();
 		$( this ).find(".text_edit").toggle();

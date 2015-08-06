@@ -1,0 +1,7 @@
+var string ="<%= escape_javascript render(:partial => 'choices/choice', :locals => { :choice => choice }).html_safe %>"
+var piece = $("#choices_list_"+<%=question.to_s %>).append(string);
+$(piece).find("li:last-child .button_confirm").toggle();
+$(piece).find("li:last-child .button_edit").toggle();
+$(piece).find("li:last-child .fi-trash").toggle();
+
+

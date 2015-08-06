@@ -8,8 +8,6 @@ class ChoicesController < ApplicationController
 
 	def destroy
 		choice = Choice.find(params[:id])
-		puts "________________"
-		puts choice.id
 		choice_id = choice.id.to_s
 		choice.destroy
 		respond_to do |format|
@@ -17,9 +15,19 @@ class ChoicesController < ApplicationController
   	end
 	end
 
+	def new 
+		@choice = Choice.new(question_id: params[:question_id])
+		respond_to do |format|
+	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:choice => @choice, :question => params[:question_id]} }
+  	end
+	end
+
 	def update
 		@choice = Choice.find(params[:id])
 		@choice.update_attributes(choice_params)
+		respond_to do |format|
+	    format.js {render :file => "/choices/update.js.erb" , content_type: 'text/javascript', :locals => {:choice => @choice} }
+  	end
 	end
 
 	private

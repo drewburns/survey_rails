@@ -30,5 +30,5 @@
 <% end %>
 </ul>
 
-<%= link_to  "Add question", questions_path(:survey_id => @survey.id), remote: true, method: :post , :class => "button tiny radius " %>
+<%= link_to  "Add question", new_question_path(:survey_id => @survey.id), remote: true , :class => "button tiny radius " %>
 </div>
