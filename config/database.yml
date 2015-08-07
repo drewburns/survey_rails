@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: survey-rails_production
+  username: survey-rails
+  password: <%= ENV['SURVEY-RAILS_DATABASE_PASSWORD'] %>
