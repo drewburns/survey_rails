@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :choices
   resources :completions
   resources :selections, only: [:new, :create]
-  get 'loaderio-990b728e4671c139e2e740801355ee4a.txt' => 'statics#key'
+  get 'loaderio-990b728e4671c139e2e740801355ee4a' => 'statics#key'
   get 'surveys/:id/stats' => 'surveys#stats', :as => 'survey_stats'
   post 'question/create' => 'questions#create'
   post 'choice/create' => 'choices#create'
