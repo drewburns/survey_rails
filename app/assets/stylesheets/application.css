@@ -54,7 +54,7 @@
 #background {
 	height: 90%;
 	width: 100%;
-	background: url('background.jpg') no-repeat;
+	background: url('images/background.jpg') no-repeat;
 	background-size: 100%;
 }
 .white {
