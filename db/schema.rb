@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710153328) do
+ActiveRecord::Schema.define(version: 20150810153322) do
 
   create_table "choices", force: :cascade do |t|
     t.string   "text"

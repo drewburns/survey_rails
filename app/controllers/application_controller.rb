@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :username
     devise_parameter_sanitizer.for(:account_update) << :username
   end
+  def after_survey_redirect
+    if signed_in?
+      redirect_to current_user
+    else
+      redirect_to root_path
+    end
+  end
 end
