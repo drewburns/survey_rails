@@ -49,11 +49,15 @@ class SurveysController < ApplicationController
 	private
 
 	def already_taken?
-		survey = Survey.find(params[:id])
-		if current_user != survey.user
-			unless Completion.where(user_id: current_user.id, survey_id: survey.id).count == 0
-				redirect_to surveys_path, :alert => "You already took that survey"
+		if signed_in?
+			survey = Survey.find(params[:id])
+			if current_user != survey.user
+				unless Completion.where(user_id: current_user.id, survey_id: survey.id).count == 0
+					redirect_to surveys_path, :alert => "You already took that survey"
+				end
 			end
+		else
+			false
 		end
 	end
 
