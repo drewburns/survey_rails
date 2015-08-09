@@ -1,8 +1,20 @@
 <li class="text-center">
 	<h4><%= question.text %></h4>
+	<% if question.question_type == "multiple choice" %>
 			<%= field_set_tag 'Choices' do %>
 				<% question.choices.each do |choice| %>
 					<input type="radio" name=<%= "question" + "[#{question.id.to_s}]" %> value= <%= choice.id %> >  <%= choice.text %></br>
 				<% end %>
 			<% end %>
+	<% else %>
+		<%= field_set_tag 'Choices' do %>
+			<select name=<%= "question" + "[#{question.id.to_s}]" %>>
+				<% question.choices.each do |choice| %>
+					<option value="<%= choice.id %>"><%= choice.text %></option>
+				<% end %>
+			</select>
+		<% end %>
+	<% end %>
 </li>
+
+

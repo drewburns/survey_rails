@@ -10,8 +10,9 @@
 	  <div class="field">
 	    <%= f.label :question_type %>
 	    <h6 class="type_solid"><%= question.question_type %></h6>
-	<!-- 			<%= select_tag(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type ),:class => "type_edit") %>  -->
-	    <%= f.text_field :question_type, :class => "type_edit" %>
+	    <span class="type_edit">
+			<%= f.select(:question_type, options_for_select(["dropdown", "multiple choice"], selected: :question_type )) %></span>
+	    <!-- <%= f.text_field :question_type, :class => "type_edit" %> -->
 		</div>
 
 		<button type="button" class="button tiny radius button_edit large-1 small-2 large-centered small-centered columns">Edit</button>

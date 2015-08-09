@@ -72,7 +72,7 @@ $(document).ready(function(){
 	$( ".question_form" ).on( "submit", function() {
 			event.preventDefault();
 			var text = $( this ).find('.text_edit').val();
-			var question_type = $( this ).find('.type_edit').val();
+			var question_type = $( this ).find('#question_question_type').val();
 		$( this ).find(".text_edit").toggle();
   	$( this ).find(".type_edit").toggle();
   	$( this ).find(".text_solid").toggle();

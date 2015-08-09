@@ -15,10 +15,12 @@ class QuestionsController < ApplicationController
 	end
 
 	def update
+		puts "__________"
+		puts question_params
 		@question = Question.find(params[:id])
 		@question.update_attributes(question_params)
 		respond_to do |format|
-	    format.js {render :file => "/questions/create.js.erb" , content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
+	    format.js {render :file => "/questions/update.js.erb" , content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
   	end
 	end
 

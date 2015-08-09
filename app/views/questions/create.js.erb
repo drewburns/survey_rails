@@ -4,7 +4,8 @@ var string ="<%= escape_javascript render(:partial => 'questions/question', :loc
 $("#questions_list").append(string);
 $("#questions_list li:last-child").find('.type_edit').toggle()
 $("#questions_list li:last-child").find('.text_edit').toggle()
-toastr.success('Question Confirmed');
+toastr.success('Question Added');
+
 	$( ".button_edit" ).on( "click", function() {
 		var form = $(this).parent();
   	$( form ).find(".text_edit").toggle();
