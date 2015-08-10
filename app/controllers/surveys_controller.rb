@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-	before_action :authenticate_user!, except: :show
+	before_action :authenticate_user!, except: [:show, :index]
 	before_action :already_taken? , only: :show
 	before_action :correct_user?, only: [:edit, :stats, :update, :destroy]
 

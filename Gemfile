@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem 'rails-perftest'
+gem 'ruby-prof'
 gem 'toastr-rails'
 gem "chartkick"
 gem 'foundation-rails'
