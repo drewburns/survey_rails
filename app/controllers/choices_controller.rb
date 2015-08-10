@@ -1,5 +1,6 @@
 class ChoicesController < ApplicationController
 	def create
+		
 		@choice = Choice.create(choice_params)
 		respond_to do |format|
 	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:choice => @choice} }
