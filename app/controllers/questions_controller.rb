@@ -1,9 +1,11 @@
 class QuestionsController < ApplicationController
 
 	def create
-		@question = Question.create(question_params)
-		respond_to do |format|
-	    format.js {render layout: false, content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
+		@question = Question.new(question_params)
+		if @question.save
+			respond_to do |format|
+		    format.js {render layout: false, content_type: 'text/javascript', :locals => {:question => @question, :choice => Choice.new} }
+	  	end
   	end
 	end
 
@@ -15,8 +17,6 @@ class QuestionsController < ApplicationController
 	end
 
 	def update
-		puts "__________"
-		puts question_params
 		@question = Question.find(params[:id])
 		@question.update_attributes(question_params)
 		respond_to do |format|

@@ -3,6 +3,7 @@ $(piece).hide();
 var string ="<%= escape_javascript render(:partial => 'choices/choice', :locals => { :choice => choice }).html_safe %>"
 var new_piece = $("#choices_list_<%= choice.question.id.to_s %>").append(string);
 $( "#edit_choice_<%= choice.id.to_s %>" ).find(".text_edit").toggle();
+
 toastr.success('Choice Created');
 
 	$( ".button_edit" ).on( "click", function() {

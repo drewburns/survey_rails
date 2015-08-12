@@ -28,5 +28,6 @@
 			<%= render choice %>
 		<% end %>
 	</ul>
-	<%= link_to  "Add choice", new_choice_path(:question_id => question.id), remote: true , :class => "button tiny radius secondary"%>
+
+	<%= link_to  "Add choice", new_choice_path(:question_id => question.id), remote: true , :class => "add_choice button tiny radius secondary"%>
 </li>

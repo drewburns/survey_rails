@@ -59,9 +59,9 @@
  	font-family: 'Cambay', sans-serif;
  }
 #background {
-	height: 90%;
+	height: 100%;
 	width: 100%;
-	background: url('background.jpg') no-repeat;
+
 	background-size: 100%;
 }
 .white {
