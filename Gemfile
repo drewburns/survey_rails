@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 
-gem 'rails-perftest'
-gem 'ruby-prof'
 gem 'toastr-rails'
 gem "chartkick"
 gem 'foundation-rails'
@@ -41,7 +39,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'rails-perftest'
+  gem 'ruby-prof'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 	gem 'sqlite3'
@@ -50,6 +49,8 @@ group :development, :test do
 end
 
 group :production do
+  gem 'rails_stdout_logging'
+  gem 'rails_serve_static_assets'
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
